@@ -363,13 +363,6 @@ VERELI does not represent an actual restaurant and does not claim affiliation wi
 
 The project is intended to demonstrate web development and design capabilities rather than represent an existing business.
 
----
-
-## Development Note
-
-This project was developed with AI assistance.
-
-AI-assisted development was used during parts of the project creation process, followed by manual review, testing, customization, debugging, and preparation for deployment.
 
 ---
 
