@@ -141,8 +141,7 @@ The frontend can also be extended with backend services and additional functiona
 
 **Live Website:**
 
-Add the deployed VERELI URL here.
-
+https://vereli.netlify.app
 ---
 
 ## 📸 Preview
