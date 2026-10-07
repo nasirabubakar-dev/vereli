@@ -2,13 +2,11 @@ import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Minus, Trash2, ShoppingBag, MessageCircle, ArrowLeft } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
-import { useReveal } from '../hooks/useReveal';
 import { menuCategories, whatsappLink, formatNaira } from '../data';
 import { useCart } from '../context/CartContext';
 import './pages.css';
 
 export default function Order() {
-  const ref = useReveal();
   const { items, addToCart, removeFromCart, updateQuantity, clearCart, subtotal, totalItems } = useCart();
 
   const whatsappOrderLink = useMemo(() => {
@@ -30,7 +28,7 @@ export default function Order() {
         imageAlt="Various appetizing dishes served on white plates and glasses of wine on a wooden table in a modern light restaurant."
       />
 
-      <section className="section order-page" ref={ref}>
+      <section className="section order-page">
         <div className="container order-page__layout">
           <div className="order-page__menu">
             {menuCategories.map((category) => (
