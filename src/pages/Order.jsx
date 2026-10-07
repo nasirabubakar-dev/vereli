@@ -4,17 +4,19 @@ import { Plus, Minus, Trash2, ShoppingBag, MessageCircle, ArrowLeft } from 'luci
 import PageHeader from '../components/PageHeader';
 import { menuCategories, whatsappLink, formatNaira } from '../data';
 import { useCart } from '../context/CartContext';
+import { useReveal } from '../hooks/useReveal';
 import './pages.css';
 
 export default function Order() {
   const { items, addToCart, removeFromCart, updateQuantity, clearCart, subtotal, totalItems } = useCart();
+  const ref = useReveal();
 
   const whatsappOrderLink = useMemo(() => {
     if (items.length === 0) return whatsappLink;
     const orderText = items
       .map((item) => `${item.name} x${item.quantity} — ${formatNaira(item.priceValue * item.quantity)}`)
-      .join('\n');
-    const fullMessage = `Hello VERELI, I would like to place an order:\n\n${orderText}\n\nTotal: ${formatNaira(subtotal)}`;
+      .join('\\n');
+    const fullMessage = `Hello VERELI, I would like to place an order:\\n\\n${orderText}\\n\\nTotal: ${formatNaira(subtotal)}`;
     return `https://wa.me/2348000000000?text=${encodeURIComponent(fullMessage)}`;
   }, [items, subtotal]);
 
@@ -28,7 +30,7 @@ export default function Order() {
         imageAlt="Various appetizing dishes served on white plates and glasses of wine on a wooden table in a modern light restaurant."
       />
 
-      <section className="section order-page">
+      <section className="section order-page" ref={ref}>
         <div className="container order-page__layout">
           <div className="order-page__menu">
             {menuCategories.map((category) => (
